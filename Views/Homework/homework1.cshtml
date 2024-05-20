@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "homework1";
+}
+
+<h1>homework1</h1>
+<div  id="spot"></div>
+@section Styles{
+    <style>
+
+    </style>
+}
+@section Scripts{
+    <script src="~/js/travel.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const spotsCardsContainer = document.querySelector('#spot');
+
+            const spotsCards = spots.CommonFormat.Section.map(spot => {
+                const imgSrc = spot.file && spot.file.img && spot.file.img[0] && spot.file.img[0].text ? spot.file.img[0].text : 'default-image-path.jpg';
+                return `
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="${imgSrc}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${spot.stitle}</h5>
+                                        <p class="card-text">${spot.xbody}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+            });
+
+            spotsCardsContainer.innerHTML = spotsCards.join("");
+        });
+    </script>
+}
