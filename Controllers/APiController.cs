@@ -19,7 +19,7 @@ namespace website.Controllers
             var cities = _context.Addresses.Select(a => a.City).Distinct();
             return Json(cities);
         }
-        public IActionResult Avatar(int id = 1) 
+        public IActionResult Avatar(int id = 3) 
         {
             Member? member = _context.Members.Find(id);
             if (member != null)
