@@ -6,7 +6,12 @@
 <div  id="spot"></div>
 @section Styles{
     <style>
-
+        .h{
+            height:180px;
+        }
+        .w{
+            width:320px;
+        }
     </style>
 }
 @section Scripts{
@@ -21,7 +26,7 @@
                 return `
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="${imgSrc}" class="card-img-top">
+                                    <img src="${imgSrc}" class="card-img-top w h">
                                     <div class="card-body">
                                         <h5 class="card-title">${spot.stitle}</h5>
                                         <p class="card-text">${spot.xbody}</p>
