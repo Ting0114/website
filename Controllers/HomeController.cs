@@ -14,7 +14,23 @@ namespace website.Controllers
             _logger = logger;
             _context = context;
         }
-        
+        public IActionResult First()
+        {
+            return View();
+        }
+        public IActionResult Address()
+        {
+            return View();
+        }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult JSONTest()
+        {
+            return View();
+        }
+
 
         public IActionResult Index()
 

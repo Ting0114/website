@@ -12,9 +12,14 @@ namespace website.Controllers
         }
         public IActionResult Index()
         {
+            System.Threading.Thread.Sleep(10000);
             return Content("<h2>世界,您好!!</h2>","text/html",System.Text.Encoding.UTF8);
         }
         public IActionResult First()
+        {
+            return View();
+        }
+        public IActionResult Address()
         {
             return View();
         }
@@ -36,6 +41,14 @@ namespace website.Controllers
             }
 
             return NotFound();
+        }
+        public IActionResult Register(int id,string name,int age = 20) 
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                name = "guest";
+            }
+            return Content($"{id}  -  {name} 好! 你 {age} 歲了", "text/html",System.Text.Encoding.UTF8);
         }
     }
 }
