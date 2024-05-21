@@ -30,6 +30,7 @@ namespace website.Controllers
                     return File(img, "image/jpeg");
                 }
             }
+
             return NotFound();
         }
     }
