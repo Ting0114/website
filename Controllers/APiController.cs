@@ -14,6 +14,10 @@ namespace website.Controllers
         {
             return Content("<h2>世界,您好!!</h2>","text/html",System.Text.Encoding.UTF8);
         }
+        public IActionResult First()
+        {
+            return View();
+        }
         public IActionResult Cities()
         {
             var cities = _context.Addresses.Select(a => a.City).Distinct();

@@ -3,13 +3,19 @@
 }
 
 <h1>homework1</h1>
-<div  id="spot"></div>
+<div id="spot" class="row row-cols-1 row-cols-md-3 g-4"></div>
 @section Styles{
     <style>
         .h{
             height:180px;
         }
         .w{
+            width:320px;
+        }
+        .h1{
+            height:380px;
+        }
+        .w1{
             width:320px;
         }
     </style>
@@ -26,7 +32,7 @@
                 return `
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="${imgSrc}" class="card-img-top w h">
+                                    <img src="${imgSrc}" class="card-img-top">
                                     <div class="card-body">
                                         <h5 class="card-title">${spot.stitle}</h5>
                                                 <p class="card-text">${xbodyPreview}</p>
