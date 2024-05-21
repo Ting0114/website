@@ -17,6 +17,7 @@
 
             const spotsCards = spots.CommonFormat.Section.map(spot => {
                 const imgSrc = spot.file && spot.file.img && spot.file.img[0] && spot.file.img[0].text ? spot.file.img[0].text : 'default-image-path.jpg';
+                const xbodyPreview = spot.xbody ? spot.xbody.substring(0, 100) : '';
                 return `
                             <div class="col">
                                 <div class="card h-100">
