@@ -30,8 +30,17 @@ namespace website.Controllers
         {
             return View();
         }
+        //檢查帳號是否存在
+        public IActionResult CheckAccount(string name)
+        {
+            var member = _context.Members.Any(m => m.Name == name);
 
-
+            return Content(member.ToString(), "text/plain", System.Text.Encoding.UTF8);
+        }
+        public IActionResult Spots()
+        {
+            return View();
+        }
         public IActionResult Index()
 
         {
