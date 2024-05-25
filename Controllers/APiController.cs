@@ -21,7 +21,7 @@ namespace MSIT158Site.Controllers
 
         public IActionResult Index()
         {
-            System.Threading.Thread.Sleep(10000);
+            // System.Threading.Thread.Sleep(10000);
             return Content("世界, 您好!!", "text/html", System.Text.Encoding.UTF8);
         }
 
@@ -126,14 +126,25 @@ namespace MSIT158Site.Controllers
                 spots = spots.Where(s => s.SpotTitle.Contains(searchDTO.keyword) || s.SpotDescription.Contains(searchDTO.keyword));
             }
 
-
-
+            //排序
+            switch (searchDTO.sortBy)
+            {
+                case "spotTitle":
+                    spots = searchDTO.sortType == "asc" ? spots.OrderBy(s => s.SpotTitle) : spots.OrderByDescending(s => s.SpotTitle);
+                    break;
+                case "categoryId":
+                    spots = searchDTO.sortType == "asc" ? spots.OrderBy(s => s.CategoryId) : spots.OrderByDescending(s => s.CategoryId);
+                    break;
+                default:
+                    spots = searchDTO.sortType == "asc" ? spots.OrderBy(s => s.SpotId) : spots.OrderByDescending(s => s.SpotId);
+                    break;
+            }
 
             //總共有多少筆資料
             int totalCount = spots.Count();
             //每頁要顯示幾筆資料
             int pageSize = searchDTO.pageSize;   //searchDTO.pageSize ?? 9;
-            //目前第幾頁
+                                                 //目前第幾頁
             int page = searchDTO.page;
 
             //計算總共有幾頁
@@ -152,5 +163,6 @@ namespace MSIT158Site.Controllers
 
             return Json(spotsPaging);
         }
+
     }
 }

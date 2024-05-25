@@ -8,5 +8,17 @@ namespace website.Controllers
         {
             return View();
         }
+        public IActionResult homework2()
+        {
+            return View();
+        }
+        public IActionResult homework3()
+        {
+            return View();
+        }
+        public IActionResult homework4()
+        {
+            return View();
+        }
     }
 }

@@ -14,6 +14,12 @@ namespace website.Controllers
             _logger = logger;
             _context = context;
         }
+
+        public IActionResult Index()
+        {
+            return View(_context.Categories);
+        }
+
         public IActionResult First()
         {
             return View();
@@ -30,25 +36,25 @@ namespace website.Controllers
         {
             return View();
         }
-        //檢查帳號是否存在
-        public IActionResult CheckAccount(string name)
-        {
-            var member = _context.Members.Any(m => m.Name == name);
 
-            return Content(member.ToString(), "text/plain", System.Text.Encoding.UTF8);
-        }
+
         public IActionResult Spots()
         {
             return View();
         }
-        public IActionResult Index()
 
+        public IActionResult CallAPI()
         {
+            return View();
+        }
 
-            var categories = from r in _context.Categories select r;
-
-            return View(categories);
-
+        public IActionResult History()
+        {
+            return View();
+        }
+        public IActionResult AutoComplete()
+        {
+            return View();
         }
 
         public IActionResult Privacy()
